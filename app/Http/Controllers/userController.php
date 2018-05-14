@@ -46,7 +46,8 @@ class userController extends controller
         $user->save();
        
         Auth::login($user);
-        return redirect()->route('signin');
+        return redirect()->route('signin')
+        ->withInput($request->all());
 
         
 
@@ -65,7 +66,8 @@ class userController extends controller
         if  (Auth::attempt(['email' =>$request['email'],'password'=>$request['password']])) {
             return redirect() -> route ('home');
         }else { 
-        return redirect() ->back();
+        return redirect() ->back()
+        ->withInput($request->all());
     }
     
 }

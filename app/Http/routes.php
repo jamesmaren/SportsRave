@@ -10,8 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::group(['middleware' => ['web']], function() 
-    {
+Route::group(['middlewareGroups' => ['web']], function ()
+ {
+    
         Route::get('/', function() { 
             return view('welcome');
        }) -> name('home');
@@ -56,7 +57,10 @@ Route::get('/userimage/{filename}',[
 ]);
     Route::get('/signin', 'pagesController@signin');   
     Route::get('/signup', 'pagesController@signup');
-        
+Route::post('/like',[
+     'uses' =>'PostController@postEditPost',
+     'as'  => 'like'
+]);     
 Route::post('/signin',[
     'uses'=>'userController@postsignin',
     'as' => 'signin'

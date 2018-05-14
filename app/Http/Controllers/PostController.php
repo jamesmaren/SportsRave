@@ -32,4 +32,24 @@ class postcontroller extends controller
           return redirect() -> route('stream')-> with (['message' => 'succesfully deleted']);
           
       }
+      public function postEditPost(Request $request)
+      {
+          $this -> validate($request,[
+              'body'=> 'required'
+          ]);
+          $post =Post::find($request['postid']);
+            if (Auth::user() != $post->user) {
+                return redirect()-> back();
+            }
+            $post->body =$request['body'];
+            $post ->update();
+            return response() ->json(['new_body'=> $post->body],200);
+   }
+   public function postLikePost(Request $request)
+   {
+       $post_id =$request['postid'];
+       $is_like =$request['islike']=='true';
+       
+
+   }
 }

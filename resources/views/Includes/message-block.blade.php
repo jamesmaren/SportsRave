@@ -1,6 +1,6 @@
 
 
-
+  <link href="{!! asset('src/css/main.css') !!}" media="all" rel="stylesheet" type="text/css" />
 
 @if(count($errors) >0)
 <div class="row">

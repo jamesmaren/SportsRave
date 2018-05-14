@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('head')
+<script type="text/javascript"   src="{{ URL::asset('src/js/app.js') }}"> </script>
+
      <title> man-city vs man-u</title>
      <style>
         /*  #stream-head{
@@ -23,8 +25,15 @@
            border:2px solid red;
            border-radius: 6px;
         } */
-        #stream-links{
-                
+        #stream-links li{
+          
+        }
+        #stream-links ol{
+          
+          
+            font-size: 24px;
+            color:#ed6050;
+            padding-left: 270px; 
         }
         #comments{
           
@@ -59,15 +68,18 @@
               <div class="stream-comments">
                  
               </div> -->
-       </div>
+       
            <div  id="stream-links">
+             <h3 style="color:green;font-family: 'Sofia';font-size:30px;padding-left:360px;text-decoration:underline;"> LINKS </h3>
              <ol> 
-              <li><a href="" ><p>link1:  </p>   </a></li>
-              <li><a href="" ><p>link2:  </p></a></li>
-              <li><a href=""><p>link:  </p></a></li>
-               <li> <a href=""> <p>link4: </p></a></li>
+              <li><a href="" > manchester  city vs real madrid </a><span>(skysports) </span></li>
+              <li><a href="" > manchester  city vs real madrid </a><span>(skysports) </span></li>
+              <li><a href="" > manchester  city vs real madrid </a><span>(skysports) </span></li>
+              <li><a href="" > manchester  city vs real madrid </a><span>(skysports) </span></li>
+              <li><a href="" > manchester  city vs real madrid </a><span>(skysports) </span></li>
+             </ol>
            </div> 
-          </ol> 
+          
      <!-- comments section start  -->  <!-- comments section start  -->   <!-- comments section start  -->
            <div id="comments">
    @include('includes.message-block')
@@ -94,38 +106,49 @@
                            {{$post ->created_at}}
                          </div>
                          <div class="interaction">
-                           <a href="#">like</a>|
-                           <a href="#">dislike</a>|
+                           <a href="#"  class="like">like</a>|
+                           <a href="#" class="like">dislike</a>|
+                           
                            @if(Auth::user() == $post->user) 
-                           <a href=""> edit</a>|
+                           <a href="#" class="edit"> edit</a>|
                          <a href="{{Route('post.delete', ['post_id' => $post ->id])}}"> delete</a>
                              @endif
                         </article>
                         @endforeach
                       </div>
             </section>
- <div class="modal fade" tabindex="_1" role="dialog" id="edit-modal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" date-dismiss="modal" aria-label="Close"><span aria-hidden="hidden">&times;</span></button>  
-      <h4 class="modal-title"> Edit Post</h4>
-          </div>
-  <div class="modal-body">
-       <p>one fine body &hellip;</p>
-           </div>
-           <div class="modal-footer">
-             <button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
-             <button type="button" class"btn btn-primary" > save changes </button> 
-           </div>
+ 
+
+    <div class="modal fade" tabindex="_1" role="dialog" id="edit-modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+               <form> 
+                   <div class="form-group">
+                     <label for="post-body">Edit the Post </label>
+                     <textarea  class="form-control" name="post-body" id="post-body" row="5"></textarea>
+                   </div>
+               </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
       </div>
+         <script>
+        var token='{{Session::token()}}';
+         var urllike ='{{route('like')}}' ;
+           </script>
+
     </div>
 
-     <script>
-        var token ='{{Session::toekn}}';
-        var urlEdit ='{{route('edit')}}'
-       </script>
-    
+     
 @endsection
