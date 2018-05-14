@@ -1,0 +1,22 @@
+.error{
+    border :1px solid red;
+    background-color: chartreuse;
+    color: red;
+
+}
+.error ul{
+    list-style:none;
+    margin:0;
+    padding: 0;
+}
+.success{
+     border: 1px solid green;
+     background-color:lightgreen;
+        color: green;
+}
+
+
+/*  to do list
+
+ error message 
+ */
