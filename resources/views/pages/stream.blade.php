@@ -61,11 +61,13 @@
               </div> -->
        </div>
            <div  id="stream-links">
-              <a href="" ><p>link1:  </p>   </a>
-              <a href="" ><p>link2:  </p></a>
-              <a href=""><p>link:  </p></a>
-                <a href=""> <p>link4: </p></a>
-           </div>  
+             <ol> 
+              <li><a href="" ><p>link1:  </p>   </a></li>
+              <li><a href="" ><p>link2:  </p></a></li>
+              <li><a href=""><p>link:  </p></a></li>
+               <li> <a href=""> <p>link4: </p></a></li>
+           </div> 
+          </ol> 
      <!-- comments section start  -->  <!-- comments section start  -->   <!-- comments section start  -->
            <div id="comments">
    @include('includes.message-block')
@@ -120,5 +122,10 @@
         </div>
       </div>
     </div>
+
+     <script>
+        var token ='{{Session::toekn}}';
+        var urlEdit ='{{route('edit')}}'
+       </script>
     
 @endsection
