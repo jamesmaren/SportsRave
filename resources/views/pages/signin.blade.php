@@ -24,6 +24,9 @@
                         <label for="password"> enter password</label>
                         <input class="form-control"  type="password"  name="password" id="password" value="{{Request::old('password')}}">
                     </div> 
+                     <p> <a href='#'> forgot password </a> </p>  
+                <p style="font-size:24px;font-family:'sofia';">  <a href="{{route('signup')}}"> <span style="color:#4fa30e;">Dont  have account , sign up !</span></a> </p>
+                      
                     <button type="submit" class="btn btn-primary">Submit</button>
                 <input type="hidden" name="_token"  value="{{Session::token()}}" />
                 </form>

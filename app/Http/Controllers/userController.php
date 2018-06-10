@@ -10,7 +10,7 @@ use illuminate\Support\Fascades\Storage;
 class userController extends controller
 {
     public function getsignin(){
-        return view ('pages.home');
+        return view ('vendor.home');
     }
     
     public function getsignup(){
@@ -33,6 +33,7 @@ class userController extends controller
        $email =$request['email'];
         $first_name =$request['first_name'];
         $second_name=$request['second_name'];
+        $favourite_team=$request['favourite_team'];
         $password =bcrypt($request['password']);
 
 
@@ -42,6 +43,7 @@ class userController extends controller
         $user->first_name=$first_name;
         $user->second_name=$second_name;
         $user->password=$password;
+        $user->favourite_team=$favourite_team;
 
         $user->save();
        
@@ -78,9 +80,12 @@ class userController extends controller
      return redirect() -> route('welcome');
  }
  public function getAccount()
- {
-     return view('pages.account', ['user' => Auth::user()]);
- }
+ {    if( ['user' => Auth::user()]) {
+    /*
+     return view('pages.account', ['user' => Auth::user()]); */
+       return view('pages.account',['user' => Auth::user()]); } else
+           return redirect() -> route('home');
+ }  
    public function  postSaveAccount(Request $request)
    {
        $this -> validate($request,[

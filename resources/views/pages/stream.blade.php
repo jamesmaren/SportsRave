@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('head')
-<script type="text/javascript"   src="{{ URL::asset('src/js/app.js') }}"> </script>
 
      <title> man-city vs man-u</title>
      <style>
@@ -106,15 +105,17 @@
                            {{$post ->created_at}}
                          </div>
                          <div class="interaction">
-                           <a href="#"  class="like">like</a>|
-                           <a href="#" class="like">dislike</a>|
+                         <a href=""  class="like">like</a>|
+                           <a href="" class="like">dislike</a>|
                            
                            @if(Auth::user() == $post->user) 
-                           <a href="#" class="edit"> edit</a>|
+                           <a href="#" class="edit"> edit</a>|  
                          <a href="{{Route('post.delete', ['post_id' => $post ->id])}}"> delete</a>
                              @endif
+                            </div>
                         </article>
                         @endforeach
+                    
                       </div>
             </section>
  
@@ -149,6 +150,10 @@
            </script>
 
     </div>
+    <script type="text/javascript"   src="{{asset('src/js/like.js') }}"> </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
      
 @endsection

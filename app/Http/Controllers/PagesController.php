@@ -13,8 +13,11 @@ class PagesController extends Controller
          return view ('welcome');
     }
     public function home(){
-        return view ('pages.home');
+        return view ('vendor.home');
     }
+    public function basketball(){
+        return view ('pages.basketball');
+   }
     public function signin(){
         return view('pages.signin');
     }

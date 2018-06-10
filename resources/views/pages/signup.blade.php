@@ -30,6 +30,10 @@
                         <label for="email"> enter email</label>
                         <input class="form-control"  type="email"  name="email" id="email" value="{{Request::old('email')}}"  >
                     </div> 
+                    <div class="form-group">
+                        <label for="favourite_team"> favourite team <span style="font-family:italic;color:darkslateblue"> (optional) </span></label>
+                        <input class="form-control"  type="favourite_team"  name="favourite_team" id="favourite_team" value="{{Request::old('favourite_team')}}"  >
+                    </div> 
                 <div class="form-group  {{ $errors ->has('password') ? 'has-error' : '' }}">
                         <label for="password"> enter password</label>
                         <input class="form-control"  type="password"  name="password" id="password" value="{{Request::old('password')}}" >

@@ -7,7 +7,7 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "dwij/laraadmin": "^1.0",
+        "dwij/laraadmin": "1.0.40",
         "simoja/laramin": "^1.2"
     },
     "require-dev": {

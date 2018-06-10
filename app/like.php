@@ -11,8 +11,8 @@ class like extends Model
     {
         return $this ->belongsTo('App/user');
     }
-    public function likes()
+    public function post()
     {
-        return $this ->hasMany('App/like');
+        return $this ->belongsTo('App/Post');
     }
 }

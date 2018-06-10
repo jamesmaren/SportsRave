@@ -20,6 +20,9 @@ Account
                 <label for="image"style="color:black;font-family: 'Sofia';font-size:19px;"> image</label>
                 <input type="file"  name="image"  class="form-control" id="image">
             </div>
+
+            <label for="favourite_team" style="color:black;font-family: 'Sofia';font-size:19px;">Favourite teams <span style="font-family:italics;color:firebrick;">(optional)</span></label>
+            <input type="text" name="favourite_team" class="form-control" value="{{ $user->favourite_team }}" id="favourite_team">
             <button type="submit"  class="btn btn-primary" > Save Account </button>
             <input type="hidden" name="_token"  value="{{Session::token()}}" />
         

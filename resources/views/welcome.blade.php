@@ -229,9 +229,10 @@ body {
           <a href="{{Route('home')}}">
               <button type="submit" class="btn btn-primary">CONTINUE </button> </a>
               <a href="{{Route('signin')}}">
+                    <!--
                 <button type="submit" class="btn btn-primary">login</button> </a>
                 <a href="{{Route('signup')}}">
-                  <button type="submit" class="btn btn-primary">signup </button> </a>
+                  <button type="submit" class="btn btn-primary">signup </button> </a> -->
         </div> 
         
         

@@ -6,11 +6,15 @@ Football
 @section('content')
    <div id="content-identity">
             <h1 style="padding-left:200px;font-family:'sofia';color:#9900cc;"> <img src="{{URL::asset('/img/logo1.png')}}" height="60px" width="60px"/> Football Schedule </h1> 
-          <h3  class="day-identity"> Friday   </h3>
+          <h3  class="day-identity">
+             @foreach($football_datas as $football_data)
+     {{$football_data->country}}  
+             @endforeach
+          </h3>
      <div style="height:20px;">
           <p class="time-identity" > 14:00</p> 
-          <a href="{{Route('stream')}}"    >
-           <p class="match-identity"> Man-city vs Man-u</p>
+          <a href="{{Route('stream')}}"    > 
+          <p class="match-identity"></p>
            <p  class="live-video-identity"> video </P>
            </a>
         </div>

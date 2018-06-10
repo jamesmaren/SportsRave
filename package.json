@@ -5,11 +5,15 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
+    "bootstrap-sass": "^3.3.7",
     "gulp": "^3.9.1",
-    "laravel-elixir": "^5.0.0",
-    "bootstrap-sass": "^3.0.0"
+    "laravel-elixir": "^5.0.0"
   },
   "dependencies": {
-    "bootstrap": "^4.1.1"
+    "admin-lte": "^3.0.0-alpha.2",
+    "bootstrap": "^4.1.1",
+    "git": "^0.1.5",
+    "jquery": "^1.12.4",
+    "popper.js": "^1.14.3"
   }
 }

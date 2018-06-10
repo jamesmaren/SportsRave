@@ -15,13 +15,13 @@ Route::group(['middlewareGroups' => ['web']], function ()
     
         Route::get('/', function() { 
             return view('welcome');
-       }) -> name('home');
+       }) -> name('welcome');
       
 
 Route::get('/home', [  
 'uses' =>'PagesController@home',
 'as'  => 'home',
-'middleware'  => 'auth'
+
 ]);
 Route::get('/football', [
     'uses' =>'PagesController@football',
@@ -33,7 +33,8 @@ Route::get('/premium',[
     ]);
 Route::get('/rugby', 'PagesController@rugby');
 Route::get('/formula1', 'PagesController@formula1');
-;
+Route::get('/basketball','PagesController@basketball');
+Route::get('/cricket','PagesController@cricket');
 Route::get('/delete-post/{post_id}', [
     'uses' => 'PostController@getDeletePost',
     'as'  => 'post.delete',  
@@ -57,8 +58,13 @@ Route::get('/userimage/{filename}',[
 ]);
     Route::get('/signin', 'pagesController@signin');   
     Route::get('/signup', 'pagesController@signup');
-Route::post('/like',[
-     'uses' =>'PostController@postEditPost',
+
+    Route::post('/like',[
+        'uses' =>'PostController@postLikePost',
+        'as'  => 'like'
+   ]);     
+Route::get('/like',[
+     'uses' =>'PostController@postLikePost',
      'as'  => 'like'
 ]);     
 Route::post('/signin',[
@@ -79,6 +85,14 @@ Route::post('/signup', [
     'as'   => 'home',
              
  ]);
+ Route::post('/cricket',[
+     'uses' => 'PagesController@cricket',
+     'as' => 'cricket'
+ ]);
+ Route::post('/basketball',[   
+    'uses' => 'pagesController@basketball',
+      'as' => 'basketball'
+    ]);
           
 Route::post('/football',[   
 'uses' => 'pagesController@football',
